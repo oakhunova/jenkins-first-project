@@ -1,0 +1,57 @@
+plugins {
+    id 'java-library'
+    id 'io.qameta.allure' version '2.11.2'
+}
+
+repositories {
+    mavenCentral()
+}
+
+group = 'ru.oakhunova'
+version = '1.0-SNAPSHOT'
+
+
+allure {
+    report {
+        version.set("2.19.0")
+    }
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.19.0")
+            }
+        }
+    }
+}
+
+dependencies {
+    testImplementation(
+            'com.codeborne:selenide:7.2.3',
+            "org.junit.jupiter:junit-jupiter:5.10.2",
+            'org.slf4j:slf4j-simple:2.0.13',
+            'io.qameta.allure:allure-selenide:2.19.0',
+            'com.github.javafaker:javafaker:1.0.2'
+    )
+}
+
+tasks.withType(Test) {
+    useJUnitPlatform()
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+task demoqa_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("demoqa")
+    }
+}
