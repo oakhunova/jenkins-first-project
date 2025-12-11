@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import pages.PracticeFormPage;
 import java.util.Map;
+
+import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static io.qameta.allure.Allure.step;
 import helpers.Attach;
 
@@ -36,6 +38,7 @@ public class PracticeFormJenkinsTests {
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
+        closeWebDriver();
     }
 
     PracticeFormPage practiceFormPage = new PracticeFormPage();

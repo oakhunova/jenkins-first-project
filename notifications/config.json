@@ -1,0 +1,16 @@
+{
+  "base": {
+    "project": "Some project name",
+    "environment": "qa.guru",
+    "comment": "comment here @girl_in_the_mo0n",
+    "reportLink": "https://jenkins.autotests.cloud/job/qa_guru_38_project_simple/15/",
+    "language": "en",
+    "allureFolder": "C:\\Users\\USER\\AppData\\Local\\Temp\\12164327999851790668\\allure-report",
+    "enableChart": true
+  },
+  "telegram": {
+    "token": "8263673259:AAGUWqqR65S3Y95U1_R8agqUo1DGhp_rGo4",
+    "chat": "-1003450344333",
+    "replyTo": ""
+  }
+}
